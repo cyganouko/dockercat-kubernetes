@@ -1,0 +1,34 @@
+
+services:
+  mongo:
+    image: mongo:7
+    container_name: yolo-mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  backend:
+    build: ./backend
+    container_name: yolo-backend
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGODB_URI=mongodb://mongo:27017/yolomy
+    depends_on:
+      - mongo
+    command: node server.js
+
+  frontend:
+    build: ./client
+    container_name: yolo-frontend
+    restart: always
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+volumes:
+  mongo_data:
