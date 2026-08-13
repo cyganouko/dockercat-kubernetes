@@ -11,11 +11,15 @@ The application consists of:
 
 ## Live Application
 
+### Live Application URL - Minikube
+
+http://192.168.49.2:30080
+
+This URL was successfully tested in Firefox during local Kubernetes testing with Minikube.
+
 ### GKE URL
 
-PENDING_GKE_DEPLOYMENT
-
-The final GKE external IP and port will be documented here after deployment.
+Pending GKE deployment. The public GKE external IP and port will be added after deployment.
 
 ## Architecture
 
