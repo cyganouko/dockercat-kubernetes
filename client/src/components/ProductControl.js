@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import axios from 'axios'; const API_URL = `${window.location.protocol}//${window.location.hostname}:5000/api/products`;
+import axios from 'axios';
 import ProductList from './ProductList';
 import NewProductForm from './NewProductForm';
 import ProductDetail from './ProductDetail';
 import AddProduct from './AddProduct';
 import EditProductForm from './EditProductForm';
+
+const API_URL = `${window.location.protocol}//${window.location.hostname}:5000/api/products`;
 // import tshirt from '../images/products/tshirt.png';
 // import backpack from '../images/products/backpack.png';
 // import pants from '../images/products/pants.png';
