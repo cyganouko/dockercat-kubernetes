@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    app: dockercat
+    component: frontend
+  annotations:
+    project: dockercat-kubernetes
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dockercat
+      component: frontend
+  template:
+    metadata:
+      labels:
+        app: dockercat
+        component: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: cyganouko/dockercat-frontend:v1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 3000
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
