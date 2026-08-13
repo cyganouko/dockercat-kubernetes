@@ -9,6 +9,12 @@ metadata:
     project: dockercat-kubernetes
 spec:
   replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  revisionHistoryLimit: 3
   selector:
     matchLabels:
       app: dockercat
